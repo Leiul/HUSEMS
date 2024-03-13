@@ -5,6 +5,9 @@ use App\Http\Controllers\ExamCoordinator\ExamCoordinatorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\college\CollegeController;
+use App\Http\Controllers\college\CollegeListController;
+use App\Http\Controllers\department\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +51,22 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     // Routes accessible to users with the 'admin' role
     Route::get('student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 });
+
+Route::get('admin/dashboard/addCollege', [CollegeController::class, 'addCollege'])->name('addCollege');
+//Route::get('admin/dashboard/addDepartment', [CollegeController::class, 'addDepartment'])->name('addDepartment');
+Route::post('addCollegeFromForm', [CollegeController::class, 'storeCollege'])->name('addCollegeFromForm');;
+Route::get('collegeList', [CollegeListController::class, 'collegeList'])->name('collegeList');
+
+
+Route::get('addDepartment', [DepartmentController::class, 'addDepartment'])->name('addDepartment');
+Route::post('addDepartmentFromForm', [DepartmentController::class, 'storeDepartment'])->name('storeDepartment');
+//Route::get('departmentList', [DepartmentListController::class, 'departmentList'])->name('departmentList');
+
+
+//Route::get('admin/dashboard/addCoordinator', [CoordinatorController::class, 'addCoordinator'])->name('addCoordinator');
+//Route::post('addCoordinatorFromForm', [CoordinatorController::class, 'storeCoordinator'])->name('storeCoordinator');
+//Route::get('coordinatorList', [CoordinatorListController::class, 'coordinatorList'])->name('coordinatorList');
+
+
 
 require __DIR__ . '/auth.php';
