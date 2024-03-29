@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('departmentName');
             $table->string('departmentAbbrivation');
-            $table->string('college_name')->nullable();
+            $table->string('college_name');
             //$table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });

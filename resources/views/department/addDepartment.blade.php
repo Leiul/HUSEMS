@@ -24,11 +24,12 @@
     <input type="text" id="deptAbbr" name="departmentAbbrivation" required>
 
     </br>
-    <select name="college_name" id="collegeName">
-        @foreach ($colleges as $college)
-                <option value="{{ $college->id }}">{{ $college->collegeName }}</option>
-        @endforeach
-    </select>
+    <select name="college_name" id="college_name">
+    <option value="">Select College</option>
+    @foreach ($colleges as $college)
+        <option value="{{ $college->id }}">{{ $college->collegeName }}</option>
+    @endforeach
+</select>
     <button type="submit">Submit</button>
 </form>
 </body>
